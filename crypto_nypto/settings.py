@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "accounts",
+    "pages",
 ]
 
 MIDDLEWARE = [
@@ -127,5 +128,5 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 # Specifies the custom user model for authentication, allowing for custom fields and behaviors
 AUTH_USER_MODEL = "accounts.CustomUser"
 
-LOGIN_REDIRECT_URL = "home"
-LOGOUT_REDIRECT_URL = "home"
+LOGIN_REDIRECT_URL = "home"  # Redirect users to the home page after login
+LOGOUT_REDIRECT_URL = "home"  # Redirect users to the home page after logout
