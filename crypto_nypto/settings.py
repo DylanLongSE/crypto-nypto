@@ -55,7 +55,8 @@ ROOT_URLCONF = "crypto_nypto.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        # Specifies the directory for custom templates
+        "DIRS": [BASE_DIR / "templates"],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -125,3 +126,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 # Specifies the custom user model for authentication, allowing for custom fields and behaviors
 AUTH_USER_MODEL = "accounts.CustomUser"
+
+LOGIN_REDIRECT_URL = "home"
+LOGOUT_REDIRECT_URL = "home"
