@@ -2,7 +2,7 @@
 
 {% block title %}Log In{% endblock title %}
 
-{% block content %}
+{% block login-signup %}
 <h2>Log In</h2>
 <form method="post">
     {% csrf_token %}
@@ -10,4 +10,4 @@
     <button type="submit">Log In</button>
 </form>
 
-{% endblock content %}
+{% endblock login-signup %}
