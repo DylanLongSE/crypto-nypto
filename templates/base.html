@@ -1,215 +1,308 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}CryptoNypto{% endblock title %}</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+
+	
 
 
-    <style>
-        
-        .background-row {
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100vw; 
-            height: 100vh; 
-            z-index: -1; 
-        }
-
-        .full-height {
-            height: 100%; 
-        }
-
-        .custom-section {
-            color: white; 
-            padding: 2rem; 
-            border-radius: 1rem; 
-            text-align: left; 
-        }
-    
-        .custom-title {
-            font-size: 2.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-    
-        .custom-text {
-            font-size: 1rem;
-            margin-bottom: 2rem;
-            line-height: 1.6;
-        }
-    
-        .custom-buttons a {
-            color: white;
-            border: 1px solid white;
-            padding: 0.5rem 1rem;
-            text-decoration: none;
-            border-radius: 0.5rem;
-            transition: background-color 0.3s, color 0.3s;
-            margin-right: 1rem;
-        }
-    
-        .custom-buttons a:hover {
-            background-color: white;
-            color: #1a1a2e;
-        }
-    
-        .social-icons a {
-            color: white;
-            margin-right: 1rem;
-            font-size: 1.5rem;
-        }
-    
-        .social-icons a:hover {
-            color: #00f5d4;
-        }
-
-        .custom-line {
-            width: 5rem;
-            height: 0.1rem; 
-            background-color: white; 
-            margin: 1rem 0; 
-            border-radius: 1rem; 
-        }
-
-        nav {
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
-        }
-
-        .search-btn {
-            background-color: #EA5455; 
-            color: white; 
-            border: none; 
-            border-radius: 4px;
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            cursor: pointer; 
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .search-btn:hover {
-            background-color: #D13C3D; 
-        }
 
 
-    </style>
 
-</head>
-<body>
-    
-   
+
+
+
+
+	
     <div class="row g-0 background-row">
-        <div class="col-8 full-height d-flex align-items-center justify-content-center" style="background-color: #3F4758;">
-            <div class="col-8 full-height d-flex align-items-center justify-content-center">
-                <div class="custom-section">
-                    <h1 class="custom-title">Get Notified When Your Favorite Crypto Hits Your Target Price</h1>
-                    <div class="custom-line"></div> 
-                    <p class="custom-text">
-                        Laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-                        tempor incididunt labore et dolore magna aliqua. Ut enim minim veniamnostrud.
-                    </p>
-                    <div class="custom-buttons">
-                        <a href="#">Read More</a>
-                    </div>
-                    <div class="social-icons mt-4">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                    </div>
-                </div>
+		<div class="col-12 col-sm-8 full-height d-flex align-items-center justify-content-center custom-section-left">
+
+        <div
+          class="col-8 full-height d-flex align-items-center justify-content-center"
+        >
+          <div class="custom-section">
+            <h1 class="custom-title">
+              Get Notified When Your Favorite Crypto Hits Your Target Price
+            </h1>
+            <div class="custom-line"></div>
+            <p class="custom-text">
+              Laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+              sed do tempor incididunt labore et dolore magna aliqua. Ut enim
+              minim veniamnostrud.
+            </p>
+            <div class="custom-buttons">
+              <a href="#">Read More</a>
             </div>
-            
+            <div class="social-icons mt-4">
+              <a href="#"><i class="fab fa-facebook"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-linkedin"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
             </div>
-    
-        <div class="col-4 full-height d-flex align-items-center justify-content-center" style="background-color: #2F3645;">
-            <div class="container text-white text-center">
-                {% block login-signup %}
-                {% endblock login-signup %}
-            </div>
-        </div> 
+          </div>
+        </div>
+
+		
+		  
+		  
+
+      </div>
+
+
+
+
+
+	  <div class="col-12 col-sm-4 full-height d-flex align-items-center justify-content-center custom-section-right">
+
+        <div class="container text-white text-center">
+          {% block login-signup %} {% endblock login-signup %}
+        </div>
+      </div>
+
+	  
+
+	  
     </div>
-    
-    
-    
-    <nav class="navbar fixed-top navbar-expand-sm 
-    navbar-dark" 
-    style="background-color: #1B2430;">
-        <div class="container">
-            <a
-                href="#" 
-                class="navbar-brand mb-0 h1">
-                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="50" fill="currentColor" class="bi bi-currency-bitcoin" viewBox="0 0 16 16" class="d-inline-block align-top" >
-                    <path d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927z"/>
-                </svg>
-                cryptoNypto
-            </a>
-            <button 
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#navbarNav"
-            class="navbar-toggler"
-            aria-controls="navbarNav"
-            aria-expanded="false"
-            aria-label="Toggle navigation"
-            >
-                <span class="navbar-toggler-icon"></span>
-                
-            </button>
-            <div 
-                class="collapse navbar-collapse" 
-                id="navbarNav">
+
+
+
+
+
+
+
+
+    <nav class="navbar fixed-top navbar-expand-sm navbar-dark custom-navbar">
+      <div class="container-fluid margin-left-nav">
+        <a href="#" class="navbar-brand mb-0 h1">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="30"
+            height="50"
+            fill="currentColor"
+            class="bi bi-currency-bitcoin"
+            viewBox="0 0 16 16"
+            class="d-inline-block align-top"
+          >
+            <path
+              d="M5.5 13v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.5v1.25c0 .138.112.25.25.25h1a.25.25 0 0 0 .25-.25V13h.084c1.992 0 3.416-1.033 3.416-2.82 0-1.502-1.007-2.323-2.186-2.44v-.088c.97-.242 1.683-.974 1.683-2.19C11.997 3.93 10.847 3 9.092 3H9V1.75a.25.25 0 0 0-.25-.25h-1a.25.25 0 0 0-.25.25V3h-.573V1.75a.25.25 0 0 0-.25-.25H5.75a.25.25 0 0 0-.25.25V3l-1.998.011a.25.25 0 0 0-.25.25v.989c0 .137.11.25.248.25l.755-.005a.75.75 0 0 1 .745.75v5.505a.75.75 0 0 1-.75.75l-.748.011a.25.25 0 0 0-.25.25v1c0 .138.112.25.25.25zm1.427-8.513h1.719c.906 0 1.438.498 1.438 1.312 0 .871-.575 1.362-1.877 1.362h-1.28zm0 4.051h1.84c1.137 0 1.756.58 1.756 1.524 0 .953-.626 1.45-2.158 1.45H6.927z"
+            />
+          </svg>
+          cryptoNypto
+        </a>
+        <button
+          type="button"
+          class="navbar-toggler"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a href="#" class="nav-link active">Home</a>
+            </li>
+            <li class="nav-item dropdown d-none d-md-block">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                Features
+              </a>
+              <ul
+                class="dropdown-menu custom-dropdown-menu"
+                aria-labelledby="navbarDropdown"
+              >
+                <li>
+                  <a href="#" class="dropdown-item">Feature 1</a>
+                </li>
+                <hr class="dropdown-divider" />
+                <li>
+                  <a href="#" class="dropdown-item">Feature 2</a>
+                </li>
+                <hr class="dropdown-divider" />
+                <li>
+                  <a href="#" class="dropdown-item">Feature 3</a>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Features (Mobile Collapse) -->
+            <li class="nav-item d-md-none">
+              <!-- Toggle link -->
+              <a
+                class="nav-link dropdown-toggle"
+                href="#featuresCollapse"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="featuresCollapse"
+              >
+                Features
+              </a>
+              <!-- Collapsible content -->
+              <div class="collapse pt-2" id="featuresCollapse">
                 <ul class="navbar-nav">
-                    <li class="nav-item\">
-                        <a href="#" class="nav-link active">
-                            Home
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" 
-                        id="navbarDropdown" 
-                        role="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false">
-                            Features
-                        </a>
-                        <ul class="dropdown-menu" 
-                        aria-labelledby="navbarDropdown">
-                            <li><a href="#" class="dropdown-item">Feature 1</a></li>
-                            <li><a href="#" class="dropdown-item">Feature 2</a></li>
-                            <li><a href="#" class="dropdown-item">Feature 3</a></li>
-
-                        </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a href="#" class="nav-link">
-                            Pricing
-                        </a>
-                    </li>
+                  <li>
+                    <a href="#" class="nav-link ms-4">Feature 1</a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link ms-4">Feature 2</a>
+                  </li>
+                  <li>
+                    <a href="#" class="nav-link ms-4">Feature 3</a>
+                  </li>
                 </ul>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Pricing</a>
+            </li>
+          </ul>
+
+          <!-- User Account Section -->
+          {% if user.is_authenticated %}
+
+          <form class="d-none d-md-flex ps-4">
+            <input type="text" class="form-control me-2" placeholder="Search" />
+            <button type="submit" class="search-btn">Search</button>
+          </form>
+
+          <ul class="navbar-nav ms-auto">
+            <!-- Ensure it aligns to the right -->
+            <!-- Username (Desktop Dropdown) -->
+            <li class="nav-item dropdown d-none d-md-block">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                {{ user.username }}
+              </a>
+              <ul class="dropdown-menu custom-dropdown-menu dropdown-menu-end">
+                <li>
+                  <a href="#" class="dropdown-item">Change Password</a>
+                </li>
+                <hr class="dropdown-divider" />
+                <li>
+                  <form
+                    method="post"
+                    action="{% url 'logout' %}"
+                    style="display: inline"
+                  >
+                    {% csrf_token %}
+                    <button
+                      type="submit"
+                      class="dropdown-item"
+                      style="display: inline"
+                    >
+                      Logout
+                    </button>
+                  </form>
+                </li>
+              </ul>
+            </li>
+
+            <!-- Username (Mobile Collapse) -->
+            <li class="nav-item d-md-none">
+              <!-- Toggle link -->
+              <a
+                class="nav-link dropdown-toggle"
+                href="#userCollapse"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="userCollapse"
+              >
+                {{ user.username }}
+              </a>
+              <!-- Collapsible content -->
+              <div class="collapse pt-2" id="userCollapse">
+				<ul class="navbar-nav">
+				  <li>
+					<a href="{% url 'password_change'%}" class="nav-link ms-4">Change Password</a>
+				  </li>
+				  <hr class="dropdown-divider my-0"/>
+				  <li>
+					<form method="post" action="{% url 'logout' %}" style="display:inline;">
+					  {% csrf_token %}
+					  <button type="submit" class="nav-link ms-4 pb-1" style="display:inline;">
+						Logout
+					  </button>
+
+					</form>
+				  </li>
+				</ul>
+			  </div>
+			  
+			  
+            </li>
+          </ul>
+
+          <!-- add search to end of hamburger menu -->
+
+          <ul class="navbar-nav">
+            <div class="d-sm-none">
+              <!-- Search Toggle -->
+              <a
+                class="nav-link dropdown-toggle"
+                href="#searchCollapse"
+                data-bs-toggle="collapse"
+                role="button"
+                aria-expanded="false"
+                aria-controls="searchCollapse"
+              >
+                Search
+              </a>
+
+              <!-- Collapsible Search Bar -->
+              <div class="collapse pt-2" id="searchCollapse">
+                <form class="d-flex">
+                  <input
+                    type="text"
+                    class="form-control me-2"
+                    style="width: 15em"
+                    placeholder="Search"
+                  />
+                  <button type="submit" class="search-btn">Search</button>
+                </form>
+              </div>
             </div>
-            <form class="d-flex d-none d-md-flex">
-                <input type="text" class="form-control me-2" placeholder="Search">
-                <button type="submit" class="search-btn">Search</button>
-            </form>
-            
-    </nav> 
-   
+          </ul>
 
-    <div class="container responsive-margin" style="margin-top: 90px;">
-        <main>
-            {% block content %}
-            {% endblock content %}
-        </main>
+          {% endif %}
+        </div>
+      </div>
+    </nav>
+
+    <div class="container responsive-margin top-margin">
+      <main>{% block content %} {% endblock content %}</main>
     </div>
-    
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+  </body>
 </html>
-
-
-
