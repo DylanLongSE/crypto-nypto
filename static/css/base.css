@@ -1,6 +1,13 @@
-body {
-    background-color: #393E46;
+body, html {
+    height: 100%;
+    font-size: 1rem;
+    font-family: "Montserrat", sans-serif;
+    margin: 0;
+    padding: 0;
 }
+
+
+
 
 ::-webkit-scrollbar {
     display: none;
@@ -13,7 +20,7 @@ body {
 
 
 nav {
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.25);
+    box-shadow: 0px 4px 6px #00000040;
 }
 
 .custom-line {
@@ -64,7 +71,6 @@ nav {
 
 }
 
-/* In your custom CSS file */
 .nav-link[type="submit"] {
     border: none;
     background: none;
@@ -74,7 +80,86 @@ nav {
     cursor: pointer;
   }
 
-  .custom-buttons a {
+  /* header */
+.gradient {
+    background: rgb(185,69,69);
+    background: linear-gradient(170deg, rgba(185,69,69,1) 0%, rgba(133,119,186,1) 67%);
+}
+
+.page-header {
+    margin-top: 4.2rem;
+}
+
+.signup-login {
+    padding-top: 70px;
+}
+
+/* social media icons */
+.icons {
+transition: transform 0.3s ease-in-out; 
+}
+  
+.icons:hover {
+transform: scale(1.2); /* Increase size by 20% */
+}
+  
+
+
+/* tech stack */
+.techStackIcon {
+    height: 5rem;
+    width: 5rem;
+    font-size: 1.75rem;
+    border-radius: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#django-logo {
+    padding: 1rem;
+}
+
+#bootstrap-logo {
+    height: 3rem;
+    width: 3rem;
+}
+
+#auth {
+    height: 3rem;
+    width: 3rem;
+}
+
+.icon-gradient {
+    background: rgb(230,230,250);
+    background: linear-gradient(170deg, rgba(230,230,250,1) 0%, rgba(165,155,207,1) 54%, rgba(133,119,186,1) 79%, rgba(133,119,186,1) 100%);
+}
+
+.techStack-padding {
+    padding-top: 150px;
+}
+
+
+
+/* footer */
+.foot {
+    color: white;
+    font-size: 1rem;
+    margin: 0;
+    padding-bottom: 5rem;
+}
+
+.foot a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+
+
+/* below not used yet */
+.custom-buttons a {
     color: white;
     border: 1px solid white;
     padding: 0.5rem 1rem;
