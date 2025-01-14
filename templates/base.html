@@ -12,6 +12,7 @@
       crossorigin="anonymous"
     />
 	<link rel="stylesheet" href="{% static 'css/base.css' %}" />
+
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -116,6 +117,17 @@
             </li>
           </ul>
 
+
+		  <div class="ms-auto">
+			<form class="form d-flex">
+			  <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
+			  <a href="{% url 'signup' %}" class="btn btn-danger ms-2">Sign up</a>
+			</form>
+		  </div>
+
+
+
+
           <!-- User Account Section -->
           {% if user.is_authenticated %}
 
@@ -139,7 +151,7 @@
               </a>
               <ul class="dropdown-menu custom-dropdown-menu dropdown-menu-end">
                 <li>
-                  <a href="#" class="dropdown-item">Change Password</a>
+                  <a href="{% url 'password_change' %}" class="dropdown-item">Change Password</a>
                 </li>
                 <hr class="dropdown-divider" />
                 <li>
@@ -240,7 +252,7 @@
 		<div class="container pt-3">
 			<div class="row align-items-center justify-content-center">
 
-				<div class="col-md-5 text-white">
+				<div class="col-md-5 text-white pt-3">
 					<h2>Get Notified When Your Favorite Crypto Hits Your Target Price</h2>
 
 					<hr class="custom-line">
@@ -264,9 +276,13 @@
 				</div>
 
 				
-				<div class="col-md-5">
-					<img src="{% static 'images/mainImg.svg' %}" alt="icon" height="450" width="430" class="ms-5">
+				<div class="col-12 col-md-5 col-lg-4 col-xl-5">
+					<img 
+    src="{% static 'images/mainImg.svg' %}" 
+    alt="icon" 
+    class="img-fluid custom-img ms-5">
 				</div>
+				
 			</div>
 		</div>
 
@@ -316,7 +332,7 @@
 
 
 				<div class="col-md-6">
-					<img src="{% static 'images/motivation.svg' %}" alt="motivation section image">
+					<img src="{% static 'images/motivation.svg' %}" alt="motivation section image" class="img-fluid w-75 w-md-50">
 				</div>
 
 

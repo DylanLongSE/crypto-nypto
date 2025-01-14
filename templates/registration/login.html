@@ -1,13 +1,41 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Log In{% endblock title %}
 
+<link rel="stylesheet" href="{% static 'css/login.css' %}"/>
 {% block login-signup %}
-<h2>Log In</h2>
+
+<h2 class="mb-3">Log In</h2>
+
 <form method="post">
     {% csrf_token %}
-    {{ form }}
-    <button type="submit">Log In</button>
-</form>
 
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-2 col-lg-3 col-xl-2">
+            <label for="id_username" class="form-label">{{ form.username.label }}</label>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center d-md-block ms-md-5 ms-lg-0">
+            {{ form.username|add_class:"form-control" }}
+            
+        </div>
+    </div>
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-2 col-lg-3 col-xl-2">
+            <label for="id_password" class="form-label">{{ form.password.label }}</label>
+        </div>
+        <div class="col-12 col-md-5 d-flex justify-content-center ms-md-5 ms-lg-0">
+            {{ form.password|add_class:"form-control" }}
+            
+        </div>
+    </div>
+    <button type="submit" class="btn btn-outline-light">Log In</button>
+
+    <!-- Non-Field Errors -->
+    <div class="text-white pt-5">
+        {{ form.non_field_errors }}
+    </div>
+
+</form>
 {% endblock login-signup %}
