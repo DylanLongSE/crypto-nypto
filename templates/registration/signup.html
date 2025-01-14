@@ -1,14 +1,84 @@
 {% extends 'base.html' %}
+{% load static %}
+{% load widget_tweaks %}
 
 {% block title %}Sign Up{% endblock title %}
 
 {% block login-signup %}
+<h2 class="mb-3">Sign Up</h2>
 
-<h2>Sign Up</h2>
-<form method="post">
+<form method="post" class="mt-4">
     {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Sign Up</button>
-</form>
 
+    
+
+    <!-- Username Field -->
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-3 col-lg-4 col-xl-3">
+            <label for="id_username" class="form-label">{{ form.username.label }}</label>
+        </div>
+        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center ms-md-5 ms-lg-0">
+            {{ form.username|add_class:"form-control" }}
+            
+        </div>
+    </div>
+
+    <!-- Email Field -->
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-3 col-lg-4 col-xl-3">
+            <label for="id_email" class="form-label">{{ form.email.label }}</label>
+        </div>
+        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center ms-md-5 ms-lg-0">
+            {{ form.email|add_class:"form-control" }}
+            
+        </div>
+    </div>
+
+    <!-- Password1 Field -->
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-3 col-lg-4 col-xl-3">
+            <label for="id_password1" class="form-label">{{ form.password1.label }}</label>
+        </div>
+        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center ms-md-5 ms-lg-0">
+            {{ form.password1|add_class:"form-control" }}
+            
+        </div>
+    </div>
+
+    <!-- Password2 Field -->
+    <div class="row mb-3 align-items-center">
+        <div class="col-12 col-md-3 col-lg-4 col-xl-3">
+            <label for="id_password2" class="form-label">{{ form.password2.label }}</label>
+        </div>
+        <div class="col-12 col-md-7 col-lg-6 d-flex justify-content-center ms-md-5 ms-lg-0">
+            {{ form.password2|add_class:"form-control" }}
+
+        </div>
+    </div>
+
+    <!-- Submit Button -->
+    <div class="text-start">
+        <button type="submit" class="btn btn-outline-light">Sign Up</button>
+    </div>
+
+    <!-- Non-Field Errors -->
+    <div class="text-white mb-3">
+        {{ form.non_field_errors }}
+    </div>
+    
+    {% if form.errors %}
+    <div class="text-white pt-5">
+        <ul>
+            <!-- Iterate through all form errors -->
+            {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+    </div>
+    {% endif %}
+
+
+</form>
 {% endblock login-signup %}

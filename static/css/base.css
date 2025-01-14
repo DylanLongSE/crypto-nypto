@@ -4,6 +4,8 @@ body, html {
     font-family: "Montserrat", sans-serif;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+
 }
 
 
@@ -174,4 +176,12 @@ transform: scale(1.2); /* Increase size by 20% */
     color: #1a1a2e;
 }
   
-  
+.custom-img {
+    width: 60%; /* Default */
+}
+
+@media (min-width: 576px) {
+    .custom-img {
+        width: 100%; /* For small screens and above */
+    }
+}
