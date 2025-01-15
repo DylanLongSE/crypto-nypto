@@ -118,12 +118,14 @@
           </ul>
 
 
+		  {% if not user.is_authenticated %}
 		  <div class="ms-auto">
 			<form class="form d-flex">
 			  <a href="{% url 'login' %}" class="btn btn-outline-secondary">Log in</a>
 			  <a href="{% url 'signup' %}" class="btn btn-danger ms-2">Sign up</a>
 			</form>
 		  </div>
+		  {% endif %}
 
 
 
@@ -278,9 +280,9 @@
 				
 				<div class="col-12 col-md-5 col-lg-4 col-xl-5">
 					<img 
-    src="{% static 'images/mainImg.svg' %}" 
-    alt="icon" 
-    class="img-fluid custom-img ms-5">
+					src="{% static 'images/mainImg.svg' %}" 
+					alt="icon" 
+					class="img-fluid custom-img ms-5">
 				</div>
 				
 			</div>
