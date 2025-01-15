@@ -8,7 +8,7 @@
     <p>Welcome {{ user.username }}</p>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
-        <button type="submit">Logout</button>
+        <button type="submit" class="btn btn-outline-light">Logout</button>
     </form>
 {% else %}
     <p class="text-white">You are not logged in</p>
