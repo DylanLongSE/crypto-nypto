@@ -1,19 +1,146 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Home{% endblock title %}
+{% block title %}
+  Home
+{% endblock %}
 
-{% block login-signup %}
+{% block landing_page %}
+  <!-- start of navbar -->
 
-{% if user.is_authenticated %}
-    <p>Welcome {{ user.username }}</p>
-    <form action="{% url 'logout' %}" method="post">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-outline-light">Logout</button>
-    </form>
-{% else %}
-    <p class="text-white">You are not logged in</p>
-    <a href="{% url 'login' %}" class="btn btn-outline-light me-1">Log In</a> 
-    <a href="{% url 'signup' %}" class="btn btn-outline-light">Sign Up</a>
-{% endif %}
+  <!-- start of header -->
+  <header class="page-header gradient">
+    <div class="container pt-3">
+      <div class="row align-items-center justify-content-center">
+        <div class="col-md-5 text-white pt-3">
+          <h2>Get Notified When Your Favorite Crypto Hits Your Target Price</h2>
 
-{% endblock login-signup %}
+          <hr class="custom-line" />
+
+          <p class="fs-6">Laborum. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do tempor incididunt labore et dolore magna aliqua. Ut enim minim veniamnostrud.</p>
+
+          <div class="text-center text-md-start">
+            <button class="btn btn-outline-light">Read More</button>
+          </div>
+
+          <div class="signup-login text-center text-md-start">
+            {% if user.is_authenticated %}
+              <p>Welcome {{ user.username }}</p>
+              <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-light">Logout</button>
+              </form>
+            {% else %}
+              <p class="text-white">You are not logged in</p>
+              <a href="{% url 'login' %}" class="btn btn-outline-light me-1">Log In</a>
+              <a href="{% url 'signup' %}" class="btn btn-outline-light">Sign Up</a>
+            {% endif %}
+          </div>
+        </div>
+
+        <div class="col-12 col-md-5 col-lg-4 col-xl-5">
+          <img src="{% static 'images/mainImg.svg' %}" alt="icon" class="img-fluid custom-img ms-5" />
+        </div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,96L48,122.7C96,149,192,203,288,202.7C384,203,480,149,576,144C672,139,768,181,864,176C960,171,1056,117,1152,96C1248,75,1344,85,1392,90.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </header>
+  <!-- end of header -->
+
+  <!-- start of contact me -->
+  <section class="contact">
+    <div class="container text-center">
+      <!-- Contact Heading -->
+      <div class="row justify-content-center text-center">
+        <div class="col-12 pb-3">
+          <h2>Contact Me</h2>
+        </div>
+      </div>
+
+      <!-- Logos Section -->
+      <div class="row">
+        <div class="d-flex flex-column flex-sm-row align-items-center justify-content-center gap-5">
+          <a href="https://www.linkedin.com/in/dylan-long-tech" target="_blank" rel="noopener noreferrer"><img src="{% static 'images/linkedIn.png' %}" alt="LinkedIn logo" class="img-fluid icons" style="width: 200px; height: auto;" /></a>
+          <a href="https://github.com/DylanLongSE" target="_blank" rel="noopener noreferrer"><img src="{% static 'images/github.png' %}" alt="GitHub logo" class="img-fluid icons" style="width: 200px; height: auto;" /></a>
+          <a href="https://discord.com/users/1107102054696095824" target="_blank" rel="noopener noreferrer"><img src="{% static 'images/discord.png' %}" alt="Discord logo" class="img-fluid icons" style="width: 200px; height: auto;" /></a>
+          <a href="mailto:example@example.com"><img src="{% static 'images/email.png' %}" alt="Email logo" class="img-fluid icons" style="width: 100px; height: 100px;" /></a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end of contact me -->
+
+  <!-- start of how it all started -->
+
+  <section class="motivation gradient">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,128L48,144C96,160,192,192,288,176C384,160,480,96,576,96C672,96,768,160,864,154.7C960,149,1056,75,1152,48C1248,21,1344,43,1392,53.3L1440,64L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+
+    <div class="container text-white">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <img src="{% static 'images/motivation.svg' %}" alt="motivation section image" class="img-fluid w-75 w-md-50" />
+        </div>
+
+        <div class="col-md-6">
+          <h1 class="my-4">How It All Started</h1>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Sint repudiandae suscipit ea voluptatem alias aspernatur laborum quibusdam, ullam recusandae saepe laudantium similique quisquam! Nesciunt aperiam velit delectus, id dolorem unde! Nesciunt voluptatibus quod dolore dolor, incidunt vero magni temporibus obcaecati.</p>
+        </div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,224L48,208C96,192,192,160,288,144C384,128,480,128,576,138.7C672,149,768,171,864,197.3C960,224,1056,256,1152,250.7C1248,245,1344,203,1392,181.3L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </section>
+  <!-- end of how it all started -->
+
+  <!-- start of how it all started -->
+  <section class="techStack">
+    <div class="container">
+      <div class="row text-center techStack-padding g-5">
+        <div class="col-md-4">
+          <div class="techStackIcon icon-gradient mb-4">
+            <img src="{% static 'images/djangoLogo.svg' %}" alt="django logo" class="img-fluid" id="django-logo" />
+          </div>
+          <h2>Backend Framework</h2>
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae, veritatis animi blanditiis possimus vero nostrum neque sequi et explicabo accusamus voluptatem architecto, distinctio incidunt voluptatibus laborum deserunt perspiciatis reiciendis. Nobis.</p>
+          <button class="btn btn-outline-dark">Learn More About Django</button>
+        </div>
+        <div class="col-md-4">
+          <div class="techStackIcon icon-gradient mb-4">
+            <img src="{% static 'images/bootstrapLogo.svg' %}" alt="bootstrap logo" id="bootstrap-logo" />
+          </div>
+          <h2>Frontend Design</h2>
+          <p class="mt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius similique praesentium quas nam harum esse consectetur asperiores ipsum corrupti totam ducimus laudantium exercitationem atque consequuntur quae dolor, alias perferendis id. Magnam qui totam ad quod?</p>
+          <button class="btn btn-outline-dark">Explore Frontend Design</button>
+        </div>
+        <div class="col-md-4">
+          <div class="techStackIcon icon-gradient mb-4">
+            <img src="{% static 'images/auth.svg' %}" alt="authentication logo" id="auth" />
+          </div>
+          <h2>Full-Stack Integration</h2>
+          <p class="mt-4">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Pariatur ex distinctio saepe optio provident minus molestiae voluptatem ullam consectetur animi, magnam ea, veniam sequi temporibus numquam accusantium iusto repellendus labore.</p>
+          <button class="btn btn-outline-dark">More about Django's authentication</button>
+        </div>
+      </div>
+    </div>
+
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,96L48,101.3C96,107,192,117,288,106.7C384,96,480,64,576,80C672,96,768,160,864,192C960,224,1056,224,1152,213.3C1248,203,1344,181,1392,170.7L1440,160L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path>
+    </svg>
+  </section>
+
+  <section class="gradient foot">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+      <path fill="#fff" fill-opacity="1" d="M0,32L48,64C96,96,192,160,288,154.7C384,149,480,75,576,53.3C672,32,768,64,864,74.7C960,85,1056,75,1152,74.7C1248,75,1344,85,1392,90.7L1440,96L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path>
+    </svg>
+    <div class="container-fluid text-center">
+      <span>Contact me: <a href="mailto:dlong12@ggc.edu">dlong12@ggc.edu</a></span>
+    </div>
+  </section>
+{% endblock %}
