@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     # local
     "accounts",
     "pages",
+    "analytics",
     # 3rd party
     "widget_tweaks",
     "crispy_forms",
@@ -143,4 +144,8 @@ LOGOUT_REDIRECT_URL = "home"  # Redirect users to the home page after logout
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
 
-EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"  # new
+EMAIL_BACKEND = (
+    "django.core.mail.backends.console.EmailBackend"  # email goes to terminal
+)
+
+TIME_ZONE = "America/New_York"
