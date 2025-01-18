@@ -1,0 +1,34 @@
+{% load static %}
+
+{% block title %}
+  Search Crypto
+{% endblock %}
+
+{% block content %}
+  <div class="container mt-5">
+    <h2 class="text-center">Search for a Cryptocurrency</h2>
+
+    <!-- Search Form -->
+    <form method="GET" action="{% url 'search' %}" class="text-center">
+      <input type="text" name="q" placeholder="Enter crypto symbol (e.g., BTC)" required />
+      <button type="submit" class="btn btn-primary">Search</button>
+    </form>
+
+    {% if crypto %}
+      <div class="mt-4 text-center">
+        <h3>Results for: {{ query }}</h3>
+        <p>
+          <strong>Symbol:</strong> {{ crypto.symbol }}
+        </p>
+        <p>
+          <strong>Price:</strong> ${{ crypto.price }}
+        </p>
+        <p>
+          <strong>Currency:</strong> {{ crypto.currency }}
+        </p>
+      </div>
+    {% elif error %}
+      <p class="text-danger text-center">{{ error }}</p>
+    {% endif %}
+  </div>
+{% endblock %}
