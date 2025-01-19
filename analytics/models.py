@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 
 
 class CryptoSearch(models.Model):
@@ -18,3 +19,7 @@ class CryptoSearch(models.Model):
 
     def __str__(self):
         return f"{self.user_query} - {self.symbol} - ${self.price} {self.currency}"
+
+    def get_absolute_url(self):
+        """Returns the absolute URL for this specific search"""
+        return reverse("search") + f"?q={self.user_query}"

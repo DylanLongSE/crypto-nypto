@@ -38,7 +38,8 @@
         <ul class="list-group">
           {% for search in recent_searches %}
             <li class="list-group-item">
-              <a href="{% url 'search' %}?q={{ search.user_query }}">{{ search.user_query }}</a> -
+              <a href="{{ search.get_absolute_url }}">{{ search.user_query }}</a>
+              -
               {{ search.timestamp|date:'F d, Y' }} at {{ search.timestamp|time:'h:i A' }}
             </li>
           {% endfor %}
