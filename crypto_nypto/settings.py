@@ -149,3 +149,4 @@ EMAIL_BACKEND = (
 )
 
 TIME_ZONE = "America/New_York"
+USE_TZ = True

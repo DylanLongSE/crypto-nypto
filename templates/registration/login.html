@@ -7,15 +7,17 @@
   Log In
 {% endblock %}
 
-{% block login_signup %}
-  <h1 class="mb-3">Log In</h1>
-  <form method="post">
-    {% csrf_token %}
-    {{ form|crispy }}
-    <button type="submit" class="btn btn-success">Log In</button>
+{% block content %}
+  <div class="container login-margin">
+    <h1 class="mb-3">Log In</h1>
+    <form method="post">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <button type="submit" class="btn btn-success">Log In</button>
 
-    <p class="mt-3">
-      <a href="{% url 'password_reset' %}">Forgot your password?</a>
-    </p>
-  </form>
+      <p class="mt-3">
+        <a href="{% url 'password_reset' %}">Forgot your password?</a>
+      </p>
+    </form>
+  </div>
 {% endblock %}

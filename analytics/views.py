@@ -1,5 +1,6 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
+from .models import CryptoSearch
 from .utils import fetch_crypto_data
 
 
@@ -15,6 +16,26 @@ class CryptoSearchView(TemplateView):
             crypto_data = fetch_crypto_data(query)
             if not crypto_data:
                 error_message = "Cryptocurrency not found. Try another symbol."
+            else:
+                CryptoSearch.objects.create(
+                    user=request.user if request.user.is_authenticated else None,
+                    user_query=query,
+                    symbol=crypto_data.get("symbol"),
+                    price=crypto_data.get("price"),
+                    currency=crypto_data.get("currency", "USD"),
+                )
 
-        context = {"crypto": crypto_data, "error": error_message, "query": query}
+        recent_searches = (
+            CryptoSearch.objects.filter(user=request.user).order_by("-timestamp")[:5]
+            if request.user.is_authenticated
+            else None
+        )
+
+        context = {
+            "crypto": crypto_data,
+            "error": error_message,
+            "query": query,
+            "recent_searches": recent_searches,
+        }
+
         return render(request, self.template_name, context)

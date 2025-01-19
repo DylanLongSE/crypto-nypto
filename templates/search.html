@@ -1,3 +1,4 @@
+{% extends 'base.html' %}
 {% load static %}
 
 {% block title %}
@@ -5,17 +6,17 @@
 {% endblock %}
 
 {% block content %}
-  <div class="container mt-5">
-    <h2 class="text-center">Search for a Cryptocurrency</h2>
+  <div class="container mt-5 text-center pt-5">
+    <h2>Search for a Cryptocurrency</h2>
 
     <!-- Search Form -->
-    <form method="GET" action="{% url 'search' %}" class="text-center">
+    <form method="get" action="{% url 'search' %}" class="text-center">
       <input type="text" name="q" placeholder="Enter crypto symbol (e.g., BTC)" required />
       <button type="submit" class="btn btn-primary">Search</button>
     </form>
 
     {% if crypto %}
-      <div class="mt-4 text-center">
+      <div class="mt-4">
         <h3>Results for: {{ query }}</h3>
         <p>
           <strong>Symbol:</strong> {{ crypto.symbol }}
@@ -28,7 +29,21 @@
         </p>
       </div>
     {% elif error %}
-      <p class="text-danger text-center">{{ error }}</p>
+      <p class="text-danger">{{ error }}</p>
+    {% endif %}
+
+    {% if user.is_authenticated and recent_searches %}
+      <div class="mt-4">
+        <h4>Recent Searches</h4>
+        <ul class="list-group">
+          {% for search in recent_searches %}
+            <li class="list-group-item">
+              <a href="{% url 'search' %}?q={{ search.user_query }}">{{ search.user_query }}</a> -
+              {{ search.timestamp|date:'F d, Y' }} at {{ search.timestamp|time:'h:i A' }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
     {% endif %}
   </div>
 {% endblock %}
