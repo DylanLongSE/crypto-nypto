@@ -10,11 +10,14 @@
     <h2>Search for a Cryptocurrency</h2>
 
     <!-- Search Form -->
-    <form method="get" action="{% url 'search' %}" class="text-center">
-      <input type="text" name="q" placeholder="Enter crypto symbol (e.g., BTC)" required />
-      <button type="submit" class="btn btn-primary">Search</button>
+    <form method="get" action="{% url 'search' %}" class="text-center mt-4">
+      <div class="input-group w-50 mx-auto">
+        <input type="text" name="q" class="form-control" placeholder="Enter crypto symbol (e.g., BTC)" required />
+        <button type="submit" class="btn btn-success">Search</button>
+      </div>
     </form>
 
+    <!-- 'if crypto' comes from .views context -->
     {% if crypto %}
       <div class="mt-4">
         <h3>Results for: {{ query }}</h3>
@@ -28,10 +31,13 @@
           <strong>Currency:</strong> {{ crypto.currency }}
         </p>
       </div>
+
+      <!-- 'elif error' comes from .views context -->
     {% elif error %}
       <p class="text-danger">{{ error }}</p>
     {% endif %}
 
+    <!-- 'recent_searches' comes from .views context -->
     {% if user.is_authenticated and recent_searches %}
       <div class="mt-4">
         <h4>Recent Searches</h4>

@@ -12,8 +12,10 @@ class CryptoSearchView(TemplateView):
         crypto_data = None
         error_message = None
 
-        if query:
-            crypto_data = fetch_crypto_data(query)
+        if query:  # if 'query' is not empty
+            crypto_data = fetch_crypto_data(query)  # fetch_crypto_data in utils.py
+
+            # if fetch_crypto_data returned None (couldn't find in api)
             if not crypto_data:
                 error_message = "Cryptocurrency not found. Try another symbol."
             else:
