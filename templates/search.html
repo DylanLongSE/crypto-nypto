@@ -9,48 +9,8 @@
   <div class="container mt-5 text-center pt-5">
     <h2>Search for a Cryptocurrency</h2>
 
-    <!-- Search Form -->
-    <form method="get" action="{% url 'search' %}" class="text-center mt-4">
-      <div class="input-group w-50 mx-auto">
-        <input type="text" name="q" class="form-control" placeholder="Enter crypto symbol (e.g., BTC)" required />
-        <button type="submit" class="btn btn-success">Search</button>
-      </div>
-    </form>
+    {% include 'partials/_search_form.html' %}
 
-    <!-- 'if crypto' comes from .views context -->
-    {% if crypto %}
-      <div class="mt-4">
-        <h3>Results for: {{ query }}</h3>
-        <p>
-          <strong>Symbol:</strong> {{ crypto.symbol }}
-        </p>
-        <p>
-          <strong>Price:</strong> ${{ crypto.price }}
-        </p>
-        <p>
-          <strong>Currency:</strong> {{ crypto.currency }}
-        </p>
-      </div>
-
-      <!-- 'elif error' comes from .views context -->
-    {% elif error %}
-      <p class="text-danger">{{ error }}</p>
-    {% endif %}
-
-    <!-- 'recent_searches' comes from .views context -->
-    {% if user.is_authenticated and recent_searches %}
-      <div class="mt-4">
-        <h4>Recent Searches</h4>
-        <ul class="list-group">
-          {% for search in recent_searches %}
-            <li class="list-group-item">
-              <a href="{{ search.get_absolute_url }}">{{ search.user_query }}</a>
-              -
-              {{ search.timestamp|date:'F d, Y' }} at {{ search.timestamp|time:'h:i A' }}
-            </li>
-          {% endfor %}
-        </ul>
-      </div>
-    {% endif %}
+    {% include 'partials/_search_results.html' %}
   </div>
 {% endblock %}

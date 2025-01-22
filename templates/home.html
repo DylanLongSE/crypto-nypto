@@ -143,6 +143,12 @@
       </div>
     </section>
   {% else %}
-    {% include 'search.html' %}
+    <div class="container mt-5 text-center pt-5">
+      <h2>Search for a Cryptocurrency</h2>
+
+      {% include 'partials/_search_form.html' %}
+
+      {% include 'partials/_search_results.html' %}
+    </div>
   {% endif %}
 {% endblock %}
