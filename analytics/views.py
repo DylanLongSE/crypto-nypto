@@ -23,7 +23,7 @@ class CryptoSearchView(TemplateView):
                     user=request.user if request.user.is_authenticated else None,
                     user_query=query,
                     symbol=crypto_data.get("symbol"),
-                    price=crypto_data.get("price"),
+                    current_price=crypto_data.get("current_price"),
                     currency=crypto_data.get("currency", "USD"),
                 )
 

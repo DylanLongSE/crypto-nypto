@@ -11,7 +11,7 @@ def fetch_crypto_data(crypto_symbol):
         data = response.json().get("data", {})
         return {
             "symbol": data.get("base"),
-            "price": float(data.get("amount")),
+            "current_price": float(data.get("amount")),
             "currency": data.get("currency"),
         }
 

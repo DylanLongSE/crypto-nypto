@@ -16,7 +16,7 @@ class CryptoSearchViewTest(TestCase):
         """Test searching for a valid cryptocurrency."""
         mock_fetch.return_value = {
             "symbol": "ETH",
-            "price": 3355.455,
+            "current_price": 3355.455,
             "currency": "USD",
         }
 
@@ -56,7 +56,7 @@ class HomePageTest(TestCase):
             user=self.user,
             user_query="BTC",
             symbol="BTC",
-            price=40000.00,
+            current_price=40000.00,
             currency="USD",
         )
 
