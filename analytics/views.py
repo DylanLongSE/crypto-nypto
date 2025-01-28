@@ -45,49 +45,73 @@ class CryptoSearchView(TemplateView):
         return render(request, self.template_name, context)
 
 
-def candlestick_chart_view(request, symbol="BTC-USD", granularity=3600):
-    """
-    Django view to generate a candlestick chart using Plotly.
-    """
-    candlestick_data = fetch_candlestick_data(symbol, granularity)
+def candlestick_chart_view(request, symbol="BTC-USD"):
+    granularity = request.GET.get("granularity", "3600")  # Default to 3600
+    try:
+        granularity = int(granularity)
+    except ValueError:
+        granularity = "3600"
 
-    if candlestick_data:
-        timestamps = [item["timestamp"] for item in candlestick_data]
-        opens = [item["open"] for item in candlestick_data]
-        highs = [item["high"] for item in candlestick_data]
-        lows = [item["low"] for item in candlestick_data]
-        closes = [item["close"] for item in candlestick_data]
+    candlestick_data = fetch_candlestick_data(symbol, int(granularity))
 
-        # Create a Plotly Candlestick Chart
-        fig = go.Figure(
-            data=[
-                go.Candlestick(
-                    x=timestamps,
-                    open=opens,
-                    high=highs,
-                    low=lows,
-                    close=closes,
-                    name=symbol,
-                )
-            ]
+    if not candlestick_data:
+        return render(
+            request,
+            "candlestick_chart.html",
+            {
+                "symbol": symbol,
+                "granularity": granularity,
+                "candlestick_chart": "<p>No data available</p>",
+            },
         )
 
-        fig.update_layout(
-            title=f"{symbol} Candlestick Chart",
-            xaxis_title="Time",
-            yaxis_title="Price (USD)",
-            xaxis_rangeslider_visible=False,
-        )
+    # Process data and generate chart
+    timestamps = [item["timestamp"] for item in candlestick_data]
+    opens = [item["open"] for item in candlestick_data]
+    highs = [item["high"] for item in candlestick_data]
+    lows = [item["low"] for item in candlestick_data]
+    closes = [item["close"] for item in candlestick_data]
 
-        # Convert figure to HTML
-        candlestick_chart = plot(fig, output_type="div")
+    fig = go.Figure(
+        data=[
+            go.Candlestick(
+                x=timestamps,
+                open=opens,
+                high=highs,
+                low=lows,
+                close=closes,
+                increasing=dict(line=dict(color="green")),
+                decreasing=dict(line=dict(color="red")),
+            )
+        ]
+    )
 
-    else:
-        candlestick_chart = "<p>No data available</p>"
+    fig.update_layout(
+        title=f"{symbol} Candlestick Chart",
+        xaxis_title="Time",
+        yaxis=dict(
+            title="Price (USD)",
+            tickprefix="$",
+            title_standoff=20,
+        ),
+        xaxis=dict(
+            tickangle=-45,
+            tickmode="auto",
+            nticks=20,
+            tickformat="%b %d, %I:%M %p",
+            rangeslider_visible=False,
+        ),
+        template="seaborn",
+    )
 
-    context = {
-        "symbol": symbol,
-        "candlestick_chart": candlestick_chart,
-    }
+    candlestick_chart = plot(fig, output_type="div")
 
-    return render(request, "candlestick_chart.html", context)
+    return render(
+        request,
+        "candlestick_chart.html",
+        {
+            "symbol": symbol,
+            "granularity": granularity,
+            "candlestick_chart": candlestick_chart,
+        },
+    )

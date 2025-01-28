@@ -1,16 +1,10 @@
 {% extends 'base.html' %}
 {% load static %}
-
-{% block title %}
-  Search Crypto
-{% endblock %}
-
+{% block title %}Search Crypto{% endblock %}
 {% block content %}
-  <div class="container mt-5 text-center pt-5">
-    <h2>Search for a Cryptocurrency</h2>
-
-    {% include 'partials/_search_form.html' %}
-
-    {% include 'partials/_search_results.html' %}
-  </div>
+    <div class="container mt-5 text-center pt-5">
+        <h2>Search for a Cryptocurrency</h2>
+        {% include 'partials/_search_form.html' %}
+        {% include 'partials/_search_results.html' %}
+    </div>
 {% endblock %}

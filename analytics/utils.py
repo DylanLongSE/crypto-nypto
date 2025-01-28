@@ -22,16 +22,16 @@ def fetch_crypto_data(crypto_symbol):
 
 COINBASE_PRO_API = "https://api.exchange.coinbase.com"
 
-# Set timezone based on Django settings
 NY_TZ = pytz.timezone("America/New_York")
 
 
 def fetch_candlestick_data(crypto_symbol, granularity=3600):
     """
-    Fetch candlestick (OHLC) data and convert timestamps to Eastern Time (ET).
+    Fetch candlestick data from Coinbase Pro (time, low, high, open, close, volume),
+    convert timestamps to Eastern Time, and return oldest to newest.
     """
     end_time = datetime.utcnow()
-    start_time = end_time - timedelta(days=1)  # Fetch past 24 hours
+    start_time = end_time - timedelta(days=1)  # last 24 hours
 
     url = f"{COINBASE_PRO_API}/products/{crypto_symbol}/candles"
     params = {
@@ -41,23 +41,29 @@ def fetch_candlestick_data(crypto_symbol, granularity=3600):
     }
 
     response = requests.get(url, params=params)
+    if response.status_code != 200:
+        return None
 
-    if response.status_code == 200:
-        data = response.json()
-        formatted_data = [
+    data = response.json()
+    if not data:
+        return None
+
+    data.reverse()
+
+    formatted_data = []
+    for row in data:
+        candle_time = datetime.utcfromtimestamp(row[0]).replace(tzinfo=pytz.utc)
+        eastern_time = candle_time.astimezone(NY_TZ)
+
+        formatted_data.append(
             {
-                "timestamp": datetime.utcfromtimestamp(c[0])
-                .replace(tzinfo=pytz.utc)
-                .astimezone(NY_TZ)
-                .strftime("%Y-%m-%d %I:%M %p"),
-                "open": c[1],
-                "high": c[2],
-                "low": c[3],
-                "close": c[4],
-                "volume": c[5],
+                "timestamp": eastern_time.strftime("%Y-%m-%d %I:%M %p"),
+                "open": row[3],
+                "high": row[2],
+                "low": row[1],
+                "close": row[4],
+                "volume": row[5],
             }
-            for c in data
-        ]
-        return formatted_data
+        )
 
-    return None  # Return None if API request fails
+    return formatted_data

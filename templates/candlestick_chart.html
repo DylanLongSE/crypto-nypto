@@ -1,20 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ symbol }} Candlestick Chart</title>
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  </head>
-  <body>
-    <h2>{{ symbol }} Candlestick Chart</h2>
-
-    {% if candlestick_chart %}
-      <div>{{ candlestick_chart|safe }}</div>
-    {% else %}
-      <p>No candlestick data available.</p>
-    {% endif %}
-
-    <a href="{% url 'search' %}" class="btn btn-primary mt-4">Back to Search</a>
-  </body>
-</html>
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container login-margin">
+        <h2>{{ symbol }} Candlestick Chart</h2>
+        {% if candlestick_chart %}
+            <div>{{ candlestick_chart|safe }}</div>
+            <form action="{% url 'crypto-chart' symbol=symbol %}"
+                  method="get"
+                  class="d-flex align-items-center gap-2 mt-3">
+                <label for="interval" class="form-label mb-0">Select Interval:</label>
+                <select name="granularity"
+                        id="interval"
+                        class="form-select form-select-sm w-auto">
+                    <option value="300" {% if granularity == 300 %}selected{% endif %}>5 Minutes</option>
+                    <option value="900" {% if granularity == 900 %}selected{% endif %}>15 Minutes</option>
+                    <option value="3600" {% if granularity == 3600 %}selected{% endif %}>1 Hour</option>
+                </select>
+                <button type="submit" class="btn btn-success btn-sm">Change Time Interval</button>
+            </form>
+        {% else %}
+            <p>No candlestick data available.</p>
+        {% endif %}
+        <hr class=" mt-5 text-dark">
+        <a href="{% url 'search' %}?q={{ symbol|slice:":-4" }}"
+           class="btn btn-primary mt-4">Back to {{ symbol|slice:":-4" }} homepage</a>
+    </div>
+{% endblock %}
+¨
