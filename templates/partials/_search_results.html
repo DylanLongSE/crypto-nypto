@@ -10,6 +10,7 @@
     <p>
       <strong>Currency:</strong> {{ crypto.currency }}
     </p>
+    <a href="{% url 'crypto-chart' symbol=crypto.symbol|add:'-USD' granularity=3600 %}" class="btn btn-primary mt-3">View Candlestick Chart</a>
   </div>
 {% elif error %}
   <p class="text-danger">{{ error }}</p>

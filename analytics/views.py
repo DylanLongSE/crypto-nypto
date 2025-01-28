@@ -1,7 +1,9 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
 from .models import CryptoSearch
-from .utils import fetch_crypto_data
+from .utils import fetch_crypto_data, fetch_candlestick_data
+import plotly.graph_objects as go
+from plotly.offline import plot
 
 
 class CryptoSearchView(TemplateView):
@@ -41,3 +43,51 @@ class CryptoSearchView(TemplateView):
         }
 
         return render(request, self.template_name, context)
+
+
+def candlestick_chart_view(request, symbol="BTC-USD", granularity=3600):
+    """
+    Django view to generate a candlestick chart using Plotly.
+    """
+    candlestick_data = fetch_candlestick_data(symbol, granularity)
+
+    if candlestick_data:
+        timestamps = [item["timestamp"] for item in candlestick_data]
+        opens = [item["open"] for item in candlestick_data]
+        highs = [item["high"] for item in candlestick_data]
+        lows = [item["low"] for item in candlestick_data]
+        closes = [item["close"] for item in candlestick_data]
+
+        # Create a Plotly Candlestick Chart
+        fig = go.Figure(
+            data=[
+                go.Candlestick(
+                    x=timestamps,
+                    open=opens,
+                    high=highs,
+                    low=lows,
+                    close=closes,
+                    name=symbol,
+                )
+            ]
+        )
+
+        fig.update_layout(
+            title=f"{symbol} Candlestick Chart",
+            xaxis_title="Time",
+            yaxis_title="Price (USD)",
+            xaxis_rangeslider_visible=False,
+        )
+
+        # Convert figure to HTML
+        candlestick_chart = plot(fig, output_type="div")
+
+    else:
+        candlestick_chart = "<p>No data available</p>"
+
+    context = {
+        "symbol": symbol,
+        "candlestick_chart": candlestick_chart,
+    }
+
+    return render(request, "candlestick_chart.html", context)

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ symbol }} Candlestick Chart</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  </head>
+  <body>
+    <h2>{{ symbol }} Candlestick Chart</h2>
+
+    {% if candlestick_chart %}
+      <div>{{ candlestick_chart|safe }}</div>
+    {% else %}
+      <p>No candlestick data available.</p>
+    {% endif %}
+
+    <a href="{% url 'search' %}" class="btn btn-primary mt-4">Back to Search</a>
+  </body>
+</html>
