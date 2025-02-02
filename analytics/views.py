@@ -4,9 +4,11 @@ from .models import CryptoSearch
 from .utils import fetch_crypto_data, fetch_candlestick_data
 import plotly.graph_objects as go
 from plotly.offline import plot
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.decorators import login_required
 
 
-class CryptoSearchView(TemplateView):
+class CryptoSearchView(LoginRequiredMixin, TemplateView):
     template_name = "search.html"
 
     def get(self, request, *args, **kwargs):
@@ -45,6 +47,7 @@ class CryptoSearchView(TemplateView):
         return render(request, self.template_name, context)
 
 
+@login_required
 def candlestick_chart_view(request, symbol="BTC-USD"):
     granularity = request.GET.get("granularity", "3600")  # Default to 3600
     try:

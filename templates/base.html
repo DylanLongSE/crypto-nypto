@@ -21,7 +21,7 @@
         <!-- start of navbar -->
         <nav class="navbar fixed-top navbar-expand-sm navbar-dark nav-bg-color p-1">
             <div class="container-fluid margin-left-nav">
-                <a href="#" class="navbar-brand mb-0 h1">
+                <a href="{% url 'home' %}" class="navbar-brand mb-0 h1">
                     <svg xmlns="http://www.w3.org/2000/svg"
                          width="30"
                          height="50"
@@ -47,54 +47,6 @@
                         <li class="nav-item">
                             <a href="{% url 'home' %}" class="nav-link active">Home</a>
                         </li>
-                        <li class="nav-item dropdown d-none d-md-block">
-                            <a class="nav-link dropdown-toggle"
-                               href="#"
-                               role="button"
-                               data-bs-toggle="dropdown"
-                               aria-expanded="false">Features</a>
-                            <ul class="dropdown-menu custom-dropdown-menu"
-                                aria-labelledby="navbarDropdown">
-                                <li>
-                                    <a href="#" class="dropdown-item">Feature 1</a>
-                                </li>
-                                <hr class="dropdown-divider" />
-                                <li>
-                                    <a href="#" class="dropdown-item">Feature 2</a>
-                                </li>
-                                <hr class="dropdown-divider" />
-                                <li>
-                                    <a href="#" class="dropdown-item">Feature 3</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <!-- Features (Mobile Collapse) -->
-                        <li class="nav-item d-md-none">
-                            <!-- Toggle link -->
-                            <a class="nav-link dropdown-toggle"
-                               href="#featuresCollapse"
-                               data-bs-toggle="collapse"
-                               role="button"
-                               aria-expanded="false"
-                               aria-controls="featuresCollapse">Features</a>
-                            <!-- Collapsible content -->
-                            <div class="collapse pt-2" id="featuresCollapse">
-                                <ul class="navbar-nav">
-                                    <li>
-                                        <a href="#" class="nav-link ms-4">Feature 1</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link ms-4">Feature 2</a>
-                                    </li>
-                                    <li>
-                                        <a href="#" class="nav-link ms-4">Feature 3</a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">Pricing</a>
-                        </li>
                     </ul>
                     {% if not user.is_authenticated %}
                         <div class="ms-auto">
@@ -106,10 +58,6 @@
                     {% endif %}
                     <!-- User Account Section -->
                     {% if user.is_authenticated %}
-                        <form class="d-none d-md-flex ps-4">
-                            <input type="text" class="form-control me-2" placeholder="Search" />
-                            <button type="submit" class="search-btn">Search</button>
-                        </form>
                         <ul class="navbar-nav ms-auto">
                             <!-- Ensure it aligns to the right -->
                             <!-- Username (Desktop Dropdown) -->
@@ -157,28 +105,6 @@
                                     </ul>
                                 </div>
                             </li>
-                        </ul>
-                        <!-- add search to end of hamburger menu -->
-                        <ul class="navbar-nav">
-                            <div class="d-sm-none">
-                                <!-- Search Toggle -->
-                                <a class="nav-link dropdown-toggle"
-                                   href="#searchCollapse"
-                                   data-bs-toggle="collapse"
-                                   role="button"
-                                   aria-expanded="false"
-                                   aria-controls="searchCollapse">Search</a>
-                                <!-- Collapsible Search Bar -->
-                                <div class="collapse pt-2" id="searchCollapse">
-                                    <form class="d-flex">
-                                        <input type="text"
-                                               class="form-control me-2"
-                                               style="width: 15em"
-                                               placeholder="Search" />
-                                        <button type="submit" class="search-btn">Search</button>
-                                    </form>
-                                </div>
-                            </div>
                         </ul>
                     {% endif %}
                 </div>
