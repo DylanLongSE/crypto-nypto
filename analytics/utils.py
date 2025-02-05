@@ -67,3 +67,21 @@ def fetch_candlestick_data(crypto_symbol, granularity=3600):
         )
 
     return formatted_data
+
+
+def fetch_valid_coins(timeout=10):
+    url = f"{COINBASE_PRO_API}/products"
+    coin_symbols = []
+    try:
+        response = requests.get(url, timeout=timeout)
+        if response.status_code == 200:
+            products = response.json()
+
+            # Filter for products with USD
+            usd_products = [p for p in products if p.get("quote_currency") == "USD"]
+
+            # Extract and sort unique base currencies
+            coin_symbols = sorted({p.get("base_currency") for p in usd_products})
+    except Exception as e:
+        print("Error fetching coin list:", e)
+    return coin_symbols

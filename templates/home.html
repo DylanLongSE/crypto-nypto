@@ -194,6 +194,9 @@
         <div class="container mt-5 text-center pt-5">
             <h2>Search for a Cryptocurrency</h2>
             {% include 'partials/_search_form.html' %}
+            <datalist id="coin-options">
+                {% for coin in coin_symbols %}<option value="{{ coin }}"></option>{% endfor %}
+            </datalist>
             {% include 'partials/_search_results.html' %}
         </div>
     {% endif %}

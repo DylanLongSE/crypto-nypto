@@ -1,7 +1,7 @@
 from django.views.generic import TemplateView
 from django.shortcuts import render
 from .models import CryptoSearch
-from .utils import fetch_crypto_data, fetch_candlestick_data
+from .utils import fetch_crypto_data, fetch_candlestick_data, fetch_valid_coins
 import plotly.graph_objects as go
 from plotly.offline import plot
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -37,11 +37,14 @@ class CryptoSearchView(LoginRequiredMixin, TemplateView):
             else None
         )
 
+        coin_symbols = fetch_valid_coins()
+
         context = {
             "crypto": crypto_data,
             "error": error_message,
             "query": query,
             "recent_searches": recent_searches,
+            "coin_symbols": coin_symbols,
         }
 
         return render(request, self.template_name, context)

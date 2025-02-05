@@ -6,9 +6,13 @@
                        name="q"
                        class="form-control"
                        placeholder="Enter crypto symbol (e.g., BTC)"
+                       list="coin-options"
                        required />
                 <button type="submit" class="btn btn-success">Search</button>
             </div>
         </div>
     </div>
+    <datalist id="coin-options">
+        {% for coin in coin_symbols %}<option value="{{ coin }}"></option>{% endfor %}
+    </datalist>
 </form>
