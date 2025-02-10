@@ -1,1 +1,1 @@
-# Crypto-Nypto: A Django & Plotly-Powered Crypto Data Visualization App
+# Crypto-Nypto: A Full-Stack Django & Plotly Crypto Data Visualization App
