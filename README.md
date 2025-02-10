@@ -8,9 +8,7 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
 
   <p style="text-align: center;">
     <img src="readme_images/trend_chart.png" alt="Crypto Trend Chart" width="600">
-  </p>
 
-  <br>
 * Secure authentication system with Django's built-in auth framework
 * Store user search history in a PostgreSQL database
 * Handle API requests & updates dynamically
