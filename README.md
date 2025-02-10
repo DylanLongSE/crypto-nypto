@@ -16,6 +16,47 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
   - git clone https://github.com/dylanlongse/Crypto-Nypto.git
   - cd Crypto-Nypto
 
+2. Create a virtual environment and activate it:
+  * Run the following commands in the terminal (Windows):
+    - python -m venv .venv
+    - .venv\Scripts\Activate or venv\Scripts\activate
+
+  * Run the following commands in the terminal (macOS/Linux)
+    - python3 -m venv .venv
+    - source .venv/bin/activate
+
+3. Install Dependencies
+  * pip install -r requirements.txt
+
+4. Set Up Environment Variables
+Create a .env file in the project's root directory and add the following:
+  * DEBUG=True
+  * SECRET_KEY=your_secret_key_here
+  * DATABASE_URL=sqlite:///db.sqlite3
+
+Generate a secure Django Secret Key by running:
+  * python -c "import secrets; print(secrets.token_urlsafe(50))"
+  * replace your secret key value with what was return from the previous command
+
+5. Update crypto_nypto/settings.py
+In this file, delete the following:
+  * EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+  * EMAIL_HOST = "smtp.gmail.com"
+  * EMAIL_PORT = 587
+  * EMAIL_USE_TLS = True
+  * EMAIL_HOST_USER = env.str("EMAIL_HOST_USER")
+  * EMAIL_HOST_PASSWORD = env.str("EMAIL_HOST_PASSWORD")*
+
+Add this to replace everything above:
+  * EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+
+6. Migrate the database and run server locally
+Run the following in the terminal:
+  * python manage.py migrate
+  * python manage.py runserver
+
+
+
 
 
   
