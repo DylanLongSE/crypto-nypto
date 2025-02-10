@@ -37,7 +37,7 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
 
   * Generate a secure Django Secret Key by running:
     - python -c "import secrets; print(secrets.token_urlsafe(50))"
-    - replace your secret key value with what was return from the previous command
+    - replace your secret key value with what was returned from the previous command
 
 5. Update crypto_nypto/settings.py
   * In this file, delete the following:
@@ -56,6 +56,9 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
     - python manage.py migrate
     - python manage.py runserver
 
+7. Access the Application
+  * Once the server is running, open your browser and go to:
+    - http://127.0.0.1:8000/
 
 
 
