@@ -3,6 +3,8 @@
 Crypto-Nypto is a full-stack web application that allows users to fetch real-time cryptocurrency data, visualize trends using interactive Plotly charts, and securely manage their searches. The platform integrates with external crypto APIs, processes API requests efficiently, and stores user search history in a PostgreSQL database. The project is fully deployed on Heroku for live access.
 
 * Fetch real-time cryptocurrency data from an external API
+<p style="text-align: center;">
+    <img src="readme_images/search.png" alt="Crypto Trend Chart" width="550">
 * Welcoming landing page built with bootstrap 5
   <p style="text-align: center;">
     <img src="readme_images/landing_page.png" alt="Crypto Trend Chart" width="550">
