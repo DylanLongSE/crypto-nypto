@@ -13,8 +13,8 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
 
 
 1. Open your terminal and run the following commands:
-  git clone https://github.com/dylanlongse/Crypto-Nypto.git
-  cd Crypto-Nypto
+  - git clone https://github.com/dylanlongse/Crypto-Nypto.git
+  - cd Crypto-Nypto
 
 
 
