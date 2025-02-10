@@ -60,6 +60,10 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
   * Once the server is running, open your browser and go to:
     - http://127.0.0.1:8000/
 
+## License  
+This project is open-source and licensed under the [MIT License](LICENSE).  
+Feel free to fork, modify, and contribute!  
+
 
 
 
