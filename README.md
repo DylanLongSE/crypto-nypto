@@ -6,10 +6,7 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
   <p style="text-align: center;">
     <img src="readme_images/search.png" alt="Crypto Trend Chart" width="550">
   </p>
- 
 * Welcoming landing page built with bootstrap 5
-
-  <br>
   <p style="text-align: center;">
     <img src="readme_images/landing_page.png" alt="Crypto Trend Chart" width="550">
   </p>
