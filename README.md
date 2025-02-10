@@ -1,3 +1,10 @@
 # Crypto-Nypto: A Full-Stack Django & Plotly Crypto Data Visualization App
 
-Crypto-Nypto is a full-stack web application built with Django that fetches real-time cryptocurrency data from external APIs and generates interactive Plotly visualizations. The platform allows users to securely log in using Django’s authentication system, store their last five searches in a PostgreSQL database, and analyze market trends through dynamically generated charts. With a focus on performance and scalability, Crypto-Nypto efficiently handles API requests, updates the database with fetched data, and ensures reliability through comprehensive automated tests.
+Crypto-Nypto is a full-stack web application that allows users to fetch real-time cryptocurrency data, visualize trends using interactive Plotly charts, and securely manage their searches. The platform integrates with external crypto APIs, processes API requests efficiently, and stores user search history in a PostgreSQL database. The project is fully deployed on Heroku for live access.
+
+* Fetch real-time cryptocurrency data from an external API
+* Generate interactive Plotly charts for crypto trend analysis
+* Secure authentication system with Django's built-in auth framework
+* Store user search history in a PostgreSQL database
+* Handle API requests & updates dynamically
+* Implement automated testing for reliability and performance
