@@ -8,3 +8,14 @@ Crypto-Nypto is a full-stack web application that allows users to fetch real-tim
 * Store user search history in a PostgreSQL database
 * Handle API requests & updates dynamically
 * Implement automated testing for reliability and performance
+
+## User Setup Guide: How to Install & Run Crypto-Nypto Locally
+
+
+1. Open your terminal and run the following commands:
+  git clone https://github.com/dylanlongse/Crypto-Nypto.git
+  cd Crypto-Nypto
+
+
+
+  
